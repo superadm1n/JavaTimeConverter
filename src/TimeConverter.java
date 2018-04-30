@@ -14,17 +14,26 @@ public class TimeConverter {
 
     public static void main(String[] args){
 
+        /*
+        Accepts arguments and interprets them running the proper methods.
+        This is designed to be run as a command line application.
+         */
+
         String convertedTime;
         String argument;
         Boolean Flag = false;
 
         for (String x: args){
+            // If -m2s is the argument it captures the next argument and passes
+            // that to the miliToStandard method to convert the time
             if (x.equals("-m2s")){
                 argument = args[Arrays.asList(args).indexOf(x) + 1];
                 convertedTime = miliToStandard(argument);
                 System.out.println(convertedTime);
                 Flag = true;
             }
+            // if -s2m is the argument it captures the next argument and passes
+            // that to the standardToMili method to convert the time.
             if (x.equals("-s2m")){
                 argument = args[Arrays.asList(args).indexOf(x) + 1];
                 convertedTime = standardToMili(argument);
@@ -33,12 +42,16 @@ public class TimeConverter {
             }
         }
 
+        // If there were no valid arguments found (specified by Flag equaling false
+        // It prints out to the user that there was no valid argument found.
         if (Flag.equals(false)){
             System.out.println("No valid argument found!");
         }
 
     }
 
+    // This method has been left in as it was used to test the various methods
+    // during development.
     private static void testMethod(){
 
         String var;
